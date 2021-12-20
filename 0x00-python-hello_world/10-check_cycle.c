@@ -10,12 +10,10 @@ int check_cycle(listint_t *list)
 
 	if (!list)
 		return (0);
-	while (turtle->next != NULL && turtle->next->next != NULL)
+	while (rabbit->next != NULL && rabbit->next->next != NULL)
 	{
 		turtle = turtle->next;
 		rabbit = rabbit->next->next;
-		if (!rabbit)
-			return (0);
 		if (rabbit == turtle)
 			return (1);
 	}
