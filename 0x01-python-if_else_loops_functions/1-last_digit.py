@@ -11,4 +11,4 @@ if aux % 10 > 5:
 elif aux % 10 < 6 and aux % 10 != 0:
     print("and is less than 6 and not 0")
 else:
-    print("and is zero")
+    print("and is 0")
