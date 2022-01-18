@@ -1,6 +1,11 @@
 !/usr/bin/python3
+"""2. Size validation"""
+
+
 class Square:
+    """Class Square"""
     def __init__(self, size=0):
+        """constructor method"""
         if int(size) < 0:
             raise ValueError("size must be >= 0")
         elif type(size) is not int:
