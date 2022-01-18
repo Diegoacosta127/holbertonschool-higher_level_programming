@@ -5,7 +5,7 @@
 class Square:
     """defines a square
     """
-    def __init__(self, size=0, position=(0, 0)):
+    def __init__(self, size=0, pos=(0, 0)):
         """constructor method
 
         Args:
@@ -18,12 +18,14 @@ class Square:
             raise ValueError("size must be >= 0")
         else:
             self.__size = size
-        if not isinstance(position, type((int, int))):
+        if not isinstance(pos, type((int, int))):
             raise TypeError("position must be a tuple of 2 positive integers")
-        elif position[0] < 0 or position[1] < 0:
+        elif pos[0] < 0 or pos[1] < 0:
+            raise TypeError("position must be a tuple of 2 positive integers")
+        elif not isinstance(pos[0], int) or not isinstance(pos[1], int):
             raise TypeError("position must be a tuple of 2 positive integers")
         else:
-            self.__position = position
+            self.__pos = pos
 
     @property
     def size(self):
@@ -46,7 +48,7 @@ class Square:
     @property
     def position(self):
         """(int, int): getter"""
-        return self.__position
+        return self.__pos
 
     @position.setter
     def position(self, value):
@@ -54,7 +56,9 @@ class Square:
             raise TypeError("position must be a tuple of 2 positive integers")
         elif value[0] < 0 or value[1] < 0:
             raise TypeError("position must be a tuple of 2 positive integers")
-        self.__position = value
+        elif not isinstance(value[0], int) or not isinstance(value[1], int):
+            raise TypeError("position must be a tuple of 2 positive integers")
+        self.__pos = value
 
     def my_print(self):
         """prints something"""
@@ -65,10 +69,10 @@ class Square:
             j = 0
             k = 0
             loop = 0
-            for k in range(self.__position[1]):
+            for k in range(self.__pos[1]):
                 print()
             for i in range(self.__size):
-                for loop in range(self.__position[0]):
+                for loop in range(self.__pos[0]):
                     print(" ", end="")
                 for j in range(self.__size):
                     print("#", end="")
