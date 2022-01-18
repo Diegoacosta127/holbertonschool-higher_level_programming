@@ -4,7 +4,7 @@
 
 class MagicClass:
     """Class: MagicClass"""
-    def __init__(self, radius=0):
+    def __init__(self, radius):
         """constructor method"""
         self.__radius = 0
         if type(radius) is not int:
