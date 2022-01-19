@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """10. ByteCode -> Python #5"""
 
-
+import math
 class MagicClass:
     """Class: MagicClass"""
     def __init__(self, radius=0):
@@ -15,7 +15,7 @@ class MagicClass:
 
     def area(self):
         """calculates area of a circle"""
-        return (self.___radius ** 2) * math.pi
+        return (self.__radius ** 2) * math.pi
 
     def circumference(self):
         """calculates the circumference"""
