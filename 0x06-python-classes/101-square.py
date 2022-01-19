@@ -63,20 +63,20 @@ class Square:
     def my_print(self):
         """prints something"""
         if self.__size == 0:
-            print()
+            return chr(10)
         else:
-            i = 0
-            j = 0
-            k = 0
-            loop = 0
-            for k in range(self.__pos[1]):
-                print()
+            if self.__pos[1] > 0:
+                for k in range(0, self.__pos[1]):
+                    print()
             for i in range(self.__size):
-                for loop in range(self.__pos[0]):
-                    print(" ", end="")
+                if self.__pos[0] > 0:
+                    for loop in range(self.__pos[0]):
+                        print(" ", end="")
                 for j in range(self.__size):
                     print("#", end="")
-                print()
+                if i != self.__size - 1:
+                    print()
+        return ''
 
     def __str__(self):
         """prints the square"""
