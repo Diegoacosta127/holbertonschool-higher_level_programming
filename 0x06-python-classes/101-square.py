@@ -63,7 +63,7 @@ class Square:
     def my_print(self):
         """prints something"""
         if self.__size == 0:
-            return chr(10)
+            return '' 
         else:
             if self.__pos[1] > 0:
                 for k in range(0, self.__pos[1]):
