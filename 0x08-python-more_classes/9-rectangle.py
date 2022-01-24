@@ -63,9 +63,9 @@ class Rectangle:
 
     def __str__(self):
         """str doc"""
-        string = ""
         if self.__width == 0 or self.__height == 0:
-            return string
+            return ""
+        string = ""
         for i in range(self.__height):
             for j in range(self.__width):
                 string += str(self.print_symbol)
@@ -75,7 +75,7 @@ class Rectangle:
 
     def __repr__(self):
         """repr doc"""
-        return (type(self).__name__ + "(" + str(self.__width) + "," +
+        return (type(self).__name__ + "(" + str(self.__width) + ", " +
                 str(self.__height) + ")")
 
     def __del__(self):
