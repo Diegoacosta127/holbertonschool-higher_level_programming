@@ -1,9 +1,15 @@
 #!/usr/bin/python3
+"""module doc"""
+
+
 class Rectangle:
+    """class doc"""
+
     number_of_instances = 0
     print_symbol = "#"
 
     def __init__(self, width=0, height=0):
+        """init doc"""
         if not isinstance(width, int):
             raise TypeError("width must be an integer")
         elif width < 0:
@@ -19,10 +25,12 @@ class Rectangle:
 
     @property
     def width(self):
+        """width getter doc"""
         return self.width
 
     @property
     def height(self):
+        """height getter doc"""
         return self.height
 
     @width.setter
@@ -44,14 +52,17 @@ class Rectangle:
             self.__height = height
 
     def area(self):
+        """area doc"""
         return self.__height * self.__width
 
     def perimeter(self):
+        """perimeter doc"""
         if self.__height == 0 or self.__width == 0:
             return 0
         return (self.__height + self.__width) * 2
 
     def __str__(self):
+        """str doc"""
         string = ""
         if self.__width == 0 or self.__height == 0:
             return string
@@ -63,15 +74,18 @@ class Rectangle:
         return string
 
     def __repr__(self):
+        """repr doc"""
         return (type(self).__name__ + "(" + str(self.__width) + "," +
                 str(self.__height) + ")")
 
     def __del__(self):
+        """del doc"""
         print("Bye rectangle...")
         Rectangle.number_of_instances -= 1
 
     @staticmethod
     def bigger_or_equal(rect_1, rect_2):
+        """bigger_or_equal doc"""
         if not isinstance(rect_1, Rectangle):
             raise TypeError("rect_1 must be an instance of Rectangle")
         if not isinstance(rect_2, Rectangle):
@@ -82,6 +96,6 @@ class Rectangle:
             return rect_1
 
     @classmethod
-    def square(cls, size = 0):
+    def square(cls, size=0):
+        """square doc"""
         return cls(size, size)
-

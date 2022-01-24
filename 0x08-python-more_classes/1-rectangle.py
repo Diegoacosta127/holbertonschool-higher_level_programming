@@ -1,6 +1,11 @@
 #!/usr/bin/python3
+"""module doc"""
+
+
 class Rectangle:
+    """class doc"""
     def __init__(self, width=0, height=0):
+        """init doc"""
         if not isinstance(width, int):
             raise TypeError("width must be an integer")
         elif width < 0:
@@ -15,10 +20,12 @@ class Rectangle:
 
     @property
     def width(self):
+        """width getter doc"""
         return self.width
 
     @property
     def height(self):
+        """height getter doc"""
         return self.height
 
     @width.setter
