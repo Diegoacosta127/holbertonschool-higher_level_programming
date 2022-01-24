@@ -61,5 +61,5 @@ class Rectangle:
 
     def __repr__(self):
         """repr doc"""
-        return (type(self).__name__ + "(" + str(self.__width) + "," +
+        return (type(self).__name__ + "(" + str(self.__width) + ", " +
                 str(self.__height) + ")")
