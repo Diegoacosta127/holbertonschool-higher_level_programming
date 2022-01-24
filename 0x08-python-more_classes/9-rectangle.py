@@ -26,12 +26,12 @@ class Rectangle:
     @property
     def width(self):
         """width getter doc"""
-        return self.width
+        return self.__width
 
     @property
     def height(self):
         """height getter doc"""
-        return self.height
+        return self.__height
 
     @width.setter
     def width(self, width):
