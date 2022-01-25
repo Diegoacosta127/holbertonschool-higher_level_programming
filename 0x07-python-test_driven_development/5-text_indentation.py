@@ -16,3 +16,4 @@ def text_indentation(text):
                 string = ""
             else:
                 string += char
+        print(string.strip(), end="")
