@@ -18,7 +18,6 @@ class Square(Rectangle):
         """size getter"""
         return self.width
 
-
     @size.setter
     def size(self, size):
         """size setter"""
@@ -29,7 +28,7 @@ class Square(Rectangle):
         """update doc"""
         attr = {0: "id", 1: "size", 2: "x", 3: "y"}
         if args:
-            if len(args) < 4:
+            if len(args) < 5:
                 for i in range(len(args)):
                     setattr(self, attr[i], args[i])
         else:
@@ -38,4 +37,5 @@ class Square(Rectangle):
 
     def to_dictionary(self):
         """to_dictionary doc"""
-        return self.__dict__
+        my_dict = {"id": self.id, "size": self.size, "x": self.x, "y": self.y}
+        return my_dict

@@ -107,7 +107,7 @@ class Rectangle(Base):
         """update doc"""
         attr = {0: "id", 1: "width", 2: "height", 3: "x", 4: "y"}
         if args:
-            if len(args) < 5:
+            if len(args) <= 5:
                 for i in range(len(args)):
                     setattr(self, attr[i], args[i])
         else:
@@ -116,4 +116,9 @@ class Rectangle(Base):
 
     def to_dictionary(self):
         """to_dictionary doc"""
-        return self.__dict__
+        my_dict = {"id": self.id,
+                   "width": self.width,
+                   "height": self.height,
+                   "x": self.x,
+                   "y": self.y}
+        return my_dict
