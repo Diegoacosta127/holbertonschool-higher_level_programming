@@ -47,4 +47,24 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         """create doc"""
-        dummy = cls()
+        if cls.__name__ == "Rectangle":
+            dummy = cls(1, 1)
+        if cls.__name__ == "Square":
+            dummy = cls(1)
+        if dummy:
+            dummy.update(**dictionary)
+        return dummy
+
+    @classmethod
+    def load_from_file(cls):
+        """load_from_file doc"""
+        l_instances = []
+        with open(f"{cls.__name__}.json", 'r') as f:
+            for line in f:
+                try:
+                    instances = cls.from_json_string(line)
+                    for item in instances:
+                        l_instances.append(cls.create(**item))
+                except Exception as ex:
+                    print(f"Exception!\n{ex}")
+        return l_instances
