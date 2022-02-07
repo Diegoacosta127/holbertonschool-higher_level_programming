@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """module doc"""
 import json
+from os import path
 
 
 class Base:
@@ -38,10 +39,9 @@ class Base:
     @staticmethod
     def from_json_string(json_string):
         """from_json_string doc"""
-        if type(json_string) is not str:
-            raise TypeError("json_string must be a string")
-        if json_string is None or json_string == "":
-            return []
+        aux_list = []
+        if json_string is None:
+            return aux_list
         return json.loads(json_string)
 
     @classmethod
@@ -59,12 +59,10 @@ class Base:
     def load_from_file(cls):
         """load_from_file doc"""
         l_instances = []
-        with open(f"{cls.__name__}.json", 'r') as f:
-            for line in f:
-                try:
+        if path.isfile(f"{cls.__name__}.json"):
+            with open(f"{cls.__name__}.json", 'r') as f:
+                for line in f:
                     instances = cls.from_json_string(line)
                     for item in instances:
                         l_instances.append(cls.create(**item))
-                except Exception as ex:
-                    print(f"Exception!\n{ex}")
         return l_instances
