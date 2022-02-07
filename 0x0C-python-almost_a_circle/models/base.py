@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """module doc"""
 import json
+import csv
 from os import path
 
 
@@ -65,4 +66,39 @@ class Base:
                     instances = cls.from_json_string(line)
                     for item in instances:
                         l_instances.append(cls.create(**item))
+        return l_instances
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """save_to_file_csv doc"""
+        name = str(cls.__name__) + ".csv"
+        with open(name, 'w', newline='') as f:
+            writer = csv.writer(f)
+            for ob in list_objs:
+                if cls.__name__ == "Rectangle":
+                    writer.writerow([ob.id, ob.width, ob.height, ob.x, ob.y])
+                if cls.__name__ == "Square":
+                    writer.writerow([ob.id, ob.size, ob.x, ob.y])
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """load_from_file_csv"""
+        l_instances = []
+        if path.isfile(f"{cls.__name__}.csv"):
+            with open(f"{cls.__name__}.csv", 'r') as f:
+                my_reader = csv.reader(f)
+                for line in my_reader:
+                    if cls.__name__ == "Rectangle":
+                        my_dict = {"id": int(line[0]),
+                                   "width": int(line[1]),
+                                   "height": int(line[2]),
+                                   "x": int(line[3]),
+                                   "y": int(line[4])}
+                    if cls.__name__ == "Square":
+                        my_dict = {"id": int(line[0]),
+                                   "size": int(line[1]),
+                                   "x": int(line[2]),
+                                   "y": int(line[3])}
+                    ob = cls.create(**my_dict)
+                    l_instances.append(ob)
         return l_instances
