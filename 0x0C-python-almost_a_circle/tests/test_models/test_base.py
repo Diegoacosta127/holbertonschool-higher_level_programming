@@ -108,10 +108,6 @@ class test_base(unittest.TestCase):
         rec_json = Rectangle.save_to_file([rec])
         with open("Rectangle.json", 'r') as f:
             self.assertEqual([rec.to_dictionary()], json.load(f))
-        rec_none = Rectangle(None)
-        rec_none_json = Rectangle.save_to_file([rec_none])
-        with open("Rectangle_none.json", 'r') as f:
-            self.assertEqual([rec_none.to_dictionary()], json.load(f))
         sq = Square(1)
         sq_json = Square.save_to_file([sq])
         with open("Square.json", 'r') as f:
