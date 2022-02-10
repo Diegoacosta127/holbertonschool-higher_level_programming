@@ -9,10 +9,26 @@ class Test_Square(unittest.TestCase):
     def test_instance_method(self):
         """instances for square test doc"""
         sq = Square(1, 2, 3, 4)
+        sq1 = Square(1, 2)
+        sq2 = Square(1, 2, 3)
+        with self.assertRaises(TypeError):
+            sq_fail = Square("1")
+        with self.assertRaises(TypeError):
+            sq_fail = Square(q, "2")
+        with self.assertRaises(TypeError):
+            sq_fail = Square(1, 2, "3")
         with self.assertRaises(TypeError):
             sq_fail = Square('1', [2], 3, False)
         with self.assertRaises(ValueError):
-            sq.fail = Square(-1, -2, 3.0, 4)
+            sq_fail = Square(-1, -2, 3.0, 4)
+        with self.assertRaises(ValueError):
+            sq_fail = Square(-1)
+        with self.assertRaises(ValueError):
+            sq_fail = Square(1, -2)
+        with self.assertRaises(ValueError):
+            sq_fail = Square(1, 2, -3)
+        with self.assertRaises(ValueError):
+            sq_fail = Square(0)
 
     def test_str(self):
         """str doc test"""
