@@ -20,6 +20,27 @@ class TestRectangle(unittest.TestCase):
                                                'height': 3,
                                                'x': 0,
                                                'y': 0})
+        self.assertEqual(rec1.area(), 2)
+        self.assertEqual(rec1.__str__(), '[Rectangle] (3) 0/0 - 1/2')
+        self.assertEqual(rec1.to_dictionary(), {'id': 3,
+                                               'width': 1,
+                                               'height': 2,
+                                               'x': 0,
+                                               'y': 0})
+        self.assertEqual(rec2.area(), 2)
+        self.assertEqual(rec2.__str__(), '[Rectangle] (4) 3/0 - 1/2')
+        self.assertEqual(rec2.to_dictionary(), {'id': 4,
+                                               'width': 1,
+                                               'height': 2,
+                                               'x': 3,
+                                               'y': 0})
+        self.assertEqual(rec3.area(), 2)
+        self.assertEqual(rec3.__str__(), '[Rectangle] (5) 3/4 - 1/2')
+        self.assertEqual(rec3.to_dictionary(), {'id': 5,
+                                               'width': 1,
+                                               'height': 2,
+                                               'x': 3,
+                                               'y': 4})
         with self.assertRaises(ValueError):
             rec_fail = Rectangle(2, -3, 0, 0, 1)
             rec_new_fail = Rectangle(-1, 2)
