@@ -1,3 +1,3 @@
 -- 16. Say my name
 -- A script that lists all records of the table second_table of the database hbtn_0c_0 in a MySQL server
-SELECT score, name FROM second_table WHERE EXISTS(SELECT name) ORDER BY score DESC
+SELECT score, name FROM second_table WHERE name IS NOT NULL and name != '' ORDER BY score DESC
