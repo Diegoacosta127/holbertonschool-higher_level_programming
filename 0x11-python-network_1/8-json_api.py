@@ -16,11 +16,11 @@ from sys import argv
 
 if __name__ == "__main__":
     if len(argv) > 1:
-        data = {'q': argv[1]}
+        datum = {'q': argv[1]}
     else:
-        data = {'q': ""}
+        datum = {'q': ""}
 
-    r = requests.post('http://0.0.0.0:5000/search_user', data)
+    r = requests.post('http://0.0.0.0:5000/search_user', data=datum)
 
     try:
         req = r.json()
