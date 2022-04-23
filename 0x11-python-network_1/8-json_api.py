@@ -2,7 +2,7 @@
 """
 Python script that takes in a letter and sends a POST request to a url with
 the letter as a parameter
-Letter is sent in the variable q 
+Letter is sent in the variable q
 If no argument is given, sets q=""
 If the response body is properly JSON formatted and not empty, displays the
 id and name like this: [<id>] <name>
