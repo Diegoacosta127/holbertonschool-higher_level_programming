@@ -15,17 +15,16 @@ from sys import argv
 
 
 if __name__ == "__main__":
-    url = "http://0.0.0.0:5000/search_user"
     if len(argv) > 1:
         data = {'q': argv[1]}
     else:
         data = {'q': ""}
-    r = requests.post(url, data)
+    r = requests.post('http://0.0.0.0:5000/search_user', data)
     try:
         req = r.json()
         if len(req) > 0:
             print("[{}] {}".format(req.get('id'), req.get('name')))
         else:
             print("No result")
-    except TypeError:
+    except:
         print("Not a valid JSON")
