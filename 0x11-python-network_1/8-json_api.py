@@ -19,7 +19,9 @@ if __name__ == "__main__":
         data = {'q': argv[1]}
     else:
         data = {'q': ""}
+
     r = requests.post('http://0.0.0.0:5000/search_user', data)
+
     try:
         req = r.json()
         if len(req) == 0:
