@@ -22,8 +22,9 @@ if __name__ == "__main__":
         q = ""
     r = requests.post(url, data={"q": q})
     try:
-        if r.json():
-            print("[{}] {}".format(r.json()["id"], r.json()["name"]))
+        req = r.json()
+        if req:
+            print("[{}] {}".format(req.get('id'), req.get('name')))
         else:
             print("No result")
     except ValueError:
