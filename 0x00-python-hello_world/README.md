@@ -69,6 +69,7 @@ Namespaces are one honking great idea -- let's do more of those!
 ~~~~
 ### Pycodestyle
 `Pycodestyle` is now the [new standard of Python style code](https://intranet.hbtn.io/rltoken/D67mmHg2X9ZI7QHlQxayyw)
+
 ![flying_circus](Flyingcircus_2.jpg)
 ## Tasks
 ### 0. Run Python file
